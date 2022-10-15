@@ -2,7 +2,7 @@ export const environment = {
   production: false,
   name: 'dev',
   firebase: {
-    cconfig: {
+    config: {
       apiKey: "AIzaSyCDpQLq1hxZ0-0niYX5Q8k_FP04suJ5k48",
       authDomain: "architect-6103c.firebaseapp.com",
       projectId: "architect-6103c",
