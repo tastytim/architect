@@ -1,1 +1,24 @@
-<p>shared works!</p>
+<h2>Form</h2>
+
+
+<form [formGroup]="form" novalidate autocomplete="off" (ngSubmit)="onSubmit()">
+
+
+  <app-button (click)="onPatchValue()">Patch Value</app-button>
+  <app-button (click)="onToggleInline()">Toggle-inline</app-button>
+
+
+  <br><br><br>
+
+
+  <app-form-field label="Input" [required]="true" [control]="form['controls']['input']" [isInline]="isInline">
+
+    <app-input formControlName="input"></app-input>
+
+  </app-form-field>
+
+
+</form>
+
+
+<code>{{form.value | json}}</code>

@@ -1,19 +1,18 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ButtonModule } from './button/button.module';
+import { FormFieldComponent } from './form-field.component';
 
 
 
 @NgModule({
   declarations: [
-
+    FormFieldComponent
   ],
   imports: [
-    CommonModule,
-    ButtonModule
+    CommonModule
   ],
   exports:[
-     ButtonModule
+    FormFieldComponent
   ]
 })
-export class ButtonsModule { }
+export class FormFieldModule { }
