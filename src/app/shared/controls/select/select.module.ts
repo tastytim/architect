@@ -15,6 +15,6 @@ import {MatSelectModule}  from '@angular/material/select'
   ],
   exports:[
     SelectComponent
-  ]
+    ]
 })
 export class SelectModule { }
