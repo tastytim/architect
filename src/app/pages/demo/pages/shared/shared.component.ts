@@ -13,6 +13,7 @@ export class SharedComponent implements OnInit {
   regexErrors = regexErrors;
   items!: ControlItem[];
   itemss!: ControlItem[];
+  itemsss!: ControlItem[];
 
   constructor(private fb: FormBuilder) {
     this.isInline = true;
@@ -24,6 +25,13 @@ export class SharedComponent implements OnInit {
       { label: 'Cina', value: 4 },
     ];
     this.itemss = [
+      { label: 'First', value: 1 },
+      { label: 'Second', value: 2 },
+      { label: 'Third', value: 3 },
+      { label: 'Fourth', value: 4 },
+      { label: 'Fifth', value: 5 },
+    ];
+    this.itemsss = [
       { label: 'First', value: 1 },
       { label: 'Second', value: 2 },
       { label: 'Third', value: 3 },
@@ -65,6 +73,13 @@ export class SharedComponent implements OnInit {
         },
       ],
       checkboxes: [
+        null,
+        {
+          updateOn: 'change',
+          validators: [Validators.required],
+        },
+      ],
+      radios: [
         null,
         {
           updateOn: 'change',
