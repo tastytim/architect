@@ -12,6 +12,7 @@ export class SharedComponent implements OnInit {
   isInline!: boolean;
   regexErrors = regexErrors;
   items!: ControlItem[];
+  itemss!: ControlItem[];
 
   constructor(private fb: FormBuilder) {
     this.isInline = true;
@@ -21,6 +22,13 @@ export class SharedComponent implements OnInit {
       { label: 'Russia', value: 2 },
       { label: 'USA', value: 3 },
       { label: 'Cina', value: 4 },
+    ];
+    this.itemss = [
+      { label: 'First', value: 1 },
+      { label: 'Second', value: 2 },
+      { label: 'Third', value: 3 },
+      { label: 'Fourth', value: 4 },
+      { label: 'Fifth', value: 5 },
     ];
   }
 
@@ -50,6 +58,13 @@ export class SharedComponent implements OnInit {
         },
       ],
       select: [
+        null,
+        {
+          updateOn: 'change',
+          validators: [Validators.required],
+        },
+      ],
+      checkboxes: [
         null,
         {
           updateOn: 'change',

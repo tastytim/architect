@@ -30,12 +30,16 @@
     <app-select formControlName="select" [items]="items"></app-select>
 
   </app-form-field>
+  <app-form-field  label="Checkbox" [required]="true" [control]="form['controls']['checkboxes']" [isInline]="isInline" >
 
-  
+    <app-checkboxes formControlName="checkboxes" [items]="itemss"></app-checkboxes>
+
+  </app-form-field>
+
+
 
 
 <code>{{form.value | json}}</code>
-<code>{{items}}</code>
 
 </form>
 
