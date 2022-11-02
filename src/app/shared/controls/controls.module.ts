@@ -6,6 +6,7 @@ import { PasswordModule } from './password/password.module';
 import { SelectModule } from './select/select.module';
 import { CheckboxesModule } from './checkboxes/checkboxes.module';
 import { RadiosModule } from './radios/radios.module';
+import { AutocompleteModule } from './autocomplete/autocomplete.module';
 
 
 
@@ -18,7 +19,8 @@ import { RadiosModule } from './radios/radios.module';
     FormFieldModule,
     SelectModule,
     CheckboxesModule,
-    RadiosModule
+    RadiosModule,
+    AutocompleteModule
   ],
   exports:[
     InputModule,
@@ -26,7 +28,8 @@ import { RadiosModule } from './radios/radios.module';
     PasswordModule,
     SelectModule,
     CheckboxesModule,
-    RadiosModule
+    RadiosModule,
+    AutocompleteModule
   ]
 })
 export class ControlsModule { }

@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { regex, regexErrors } from '@app/shared/utils';
+import { regex, regexErrors , markFormGroupTouched} from '@app/shared/utils';
 import { ControlItem } from '@app/models/frontend';
+import { NotificationService } from '@app/services';
+
 @Component({
   selector: 'app-shared',
   templateUrl: './shared.component.html',
@@ -14,8 +16,10 @@ export class SharedComponent implements OnInit {
   items!: ControlItem[];
   itemss!: ControlItem[];
   itemsss!: ControlItem[];
+  showSpinner = false;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder,
+    private notification:NotificationService) {
     this.isInline = true;
     this.items = [
       { label: 'Italy', value: 1 },
@@ -65,6 +69,13 @@ export class SharedComponent implements OnInit {
           ],
         },
       ],
+      autocomplete: [
+        null,
+        {
+          updateOn: 'change',
+          validators: [Validators.required],
+        },
+      ],
       select: [
         null,
         {
@@ -90,14 +101,48 @@ export class SharedComponent implements OnInit {
   }
 
   onPatchValue() {
-    this.form.patchValue({ input: 'text' });
+    this.form.patchValue({ 
+      input: 'text',
+      password: 'qwerty',
+      autocomplete:1,
+      select:2,
+      checkboxes:[3],
+      radios:4,
+      date:new Date().getTime()   
+    });
   }
 
-  onToggleInline() {
+  onToggleInline() :void{
     this.isInline = !this.isInline;
   }
+  onToggleDisable() :void{
+    if(this.form.enabled){
+      this.form.disable()
+    }else{
+      this.form.enable()
+    }
+  }
 
-  onSubmit() {
-    console.log('Submit');
+  onResetValues():void{
+    this.form.reset()
+  }
+
+  onSubmit():void {
+   if(!this.form.valid){
+    markFormGroupTouched(this.form)
+   }
+  }
+
+  onSuccess():void{
+
+    this.notification.success('Ok')
+  }
+
+  onError():void{
+this.notification.error('Some error')
+  }
+
+  onToggleSpinner():void{
+    this.showSpinner = !this.showSpinner
   }
 }

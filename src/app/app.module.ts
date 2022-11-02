@@ -10,6 +10,9 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations'
 
+//Services
+import { NotificationModule } from './services';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,7 +25,8 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations'
     AngularFireModule.initializeApp(environment.firebase.config),
     AngularFirestoreModule,
     AngularFireStorageModule,
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    NotificationModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
