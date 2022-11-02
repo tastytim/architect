@@ -8,13 +8,46 @@ import { environment } from '../environments/environment';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations'
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+//Date
+import {
+  MatNativeDateModule,
+  MatDateFormats,
+  MAT_DATE_FORMATS,
+  MAT_DATE_LOCALE,
+} from '@angular/material/core';
+const APP_DATE_FORMATS: MatDateFormats = {
+  parse: {
+    dateInput: {
+      day: 'numeric',
+      month: 'numeric',
+      year: 'numeric',
+    },
+  },
+  display: {
+    dateInput: {
+      day: 'numeric',
+      month: 'short',
+      year: 'numeric',
+    },
+    monthYearA11yLabel: {
+      year: 'numeric',
+      month: 'short',
+    },
+    dateA11yLabel: {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+    },
+    monthYearLabel: {
+      year: 'numeric',
+      month: 'short',
+    },
+  },
+};
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HeaderComponent
-  ],
+  declarations: [AppComponent, HeaderComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -22,9 +55,13 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations'
     AngularFireModule.initializeApp(environment.firebase.config),
     AngularFirestoreModule,
     AngularFireStorageModule,
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    MatNativeDateModule
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [
+    {provide:MAT_DATE_LOCALE, useValue:'it-IT'},
+    {provide:MAT_DATE_FORMATS,useValue:APP_DATE_FORMATS}
+  ],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
