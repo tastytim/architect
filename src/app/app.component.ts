@@ -12,8 +12,6 @@ export class AppComponent implements OnInit{
   constructor(private afs : AngularFirestore){}
 
   ngOnInit(){
-    this.afs.collection('test').snapshotChanges().subscribe(data=>{
-     console.log(data.map(x => x.payload.doc.data()))
-    })
+    
   }
 }
