@@ -48,6 +48,14 @@ const APP_DATE_FORMATS: MatDateFormats = {
 
 //Services
 import { NotificationModule } from './services';
+import { EffectsModule } from '@ngrx/effects';
+import {  StoreDevtoolsModule } from '@ngrx/store-devtools';
+const StoreDevtools = !environment.production ? StoreDevtoolsModule.instrument({maxAge:50})  :[];
+import { reducers, effects } from './store';
+
+//Store
+
+import { StoreModule } from '@ngrx/store';
 
 @NgModule({
   declarations: [AppComponent, HeaderComponent],
@@ -60,7 +68,20 @@ import { NotificationModule } from './services';
     AngularFireStorageModule,
     AngularFireAuthModule,
     MatNativeDateModule,
-    NotificationModule.forRoot()
+    NotificationModule.forRoot(),
+
+
+    StoreModule.forRoot(reducers,{
+      runtimeChecks:{
+        strictActionImmutability:true,
+        strictStateImmutability:true
+      }
+    }),
+
+
+    EffectsModule.forRoot(effects),
+
+    StoreDevtools
   ],
   providers: [
     {provide:MAT_DATE_LOCALE, useValue:'it-IT'},

@@ -7,6 +7,7 @@ export interface Dictionaries{
     specializations:Dictionary;
     qualifications:Dictionary;
     skills:Dictionary;
+    countries:Dictionary;
 }
 
 

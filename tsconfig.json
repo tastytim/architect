@@ -4,12 +4,12 @@
   "compilerOptions": {
     "baseUrl": "src",
     "paths": {
-    "@app/*":[
-      "app/*"
-    ],
-    "@src/*":[
-      "*"
-    ]
+      "@app/*": [
+        "app/*"
+      ],
+      "@src/*": [
+        "*"
+      ]
     },
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,
@@ -32,7 +32,6 @@
     ],
     "resolveJsonModule": true,
     "esModuleInterop": true
-
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
