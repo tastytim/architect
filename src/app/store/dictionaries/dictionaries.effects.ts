@@ -63,11 +63,11 @@ export class DictionariesEffects {
                     map(items => items.map(x => documentToItem(x)))
                 ),
                 of((jsonCountries as any).default.map(country => ({
-                    id: country.code.toUppercase(),
+                    id: country.code.toUpperCase(),
                     name: country.name,
                     icon: {
                         src: null,
-                        cssClass: 'fflag fflag-' + country.code.toUppercase()
+                        cssClass: 'fflag fflag-' + country.code.toUpperCase()
                     }
                 })
                 ))
@@ -79,7 +79,7 @@ export class DictionariesEffects {
                         specializations: addDictionary(specializations),
                         qualifications: addDictionary(qualifications),
                         skills: addDictionary(skills),
-                        countries: addDictionary(countries)
+                        countries: addDictionary(countries),
                         
                     };
                     return new fromActions.ReadSuccess(dictionaries)
