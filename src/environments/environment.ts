@@ -13,6 +13,10 @@ export const environment = {
             storageBucket: "architect-6103c.appspot.com",
             messagingSenderId: "663083856024",
             appId: "1:663083856024:web:c21cdfa222947915a920ed"
+    },
+    actionCodeSettings:{
+      url:'http://localhost:5200/demo',
+      handleCodeInApp:true
     }
   }
 };

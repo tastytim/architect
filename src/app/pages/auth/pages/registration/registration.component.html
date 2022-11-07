@@ -1,0 +1,29 @@
+
+<div class="app-page">
+    <div class="app-page__header">
+        <h1>Registration</h1>
+    </div>
+
+    <form [formGroup]="form" (submit)="onSubmit()" (keyup.enter)="onSubmit()" novalidate autocomplete="off">
+ <div class="app-page__content">
+    <app-form-field [required]="true" [control]="form['controls']['email']" label="Email">
+        <app-input formControlName="email"></app-input>
+    </app-form-field >
+    <app-form-field [required]="true" [control]="form['controls']['password']" label="Password"> 
+        <app-password formControlName="password"></app-password>
+    </app-form-field>
+    <app-form-field [required]="true" [control]="form['controls']['passwordRepeat']" label="Confirm password">
+        <app-password formControlName="passwordRepeat"></app-password>
+    </app-form-field>
+
+    <div class="error" [class.error_active]="form.hasError('repeat')">Entered password don't match </div>
+ </div>
+
+    <div class="app-page__footer">
+        <app-button type="submit">Complete</app-button>
+    </div>
+
+
+    </form>
+   
+</div>

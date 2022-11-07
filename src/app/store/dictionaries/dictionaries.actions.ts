@@ -1,4 +1,4 @@
-import {Action} from '@ngrx/store'
+import {Action } from '@ngrx/store'
 
 import { Dictionaries } from './dictionaries.models'
 
